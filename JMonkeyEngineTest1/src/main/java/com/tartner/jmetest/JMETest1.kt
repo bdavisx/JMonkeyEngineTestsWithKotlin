@@ -6,6 +6,7 @@ import com.jme3.math.ColorRGBA
 import com.jme3.math.Vector3f
 import com.jme3.scene.Geometry
 import com.jme3.scene.shape.Box
+import com.jme3.scene.shape.Sphere
 
 public class Main : SimpleApplication() {
 
@@ -21,6 +22,15 @@ public class Main : SimpleApplication() {
         geometry.setMaterial(material);
         // make the object appear in the scene
         rootNode.attachChild(geometry);
+
+        val vector2 = Vector3f(2.0f, 1.0f, -3.0f);
+        val shape = Sphere(5,10,5f);
+        val geometry2 = Geometry("Box", shape);
+        val material2 = Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+        material2.setColor("Color", ColorRGBA.Green);
+        geometry2.setMaterial(material2);
+        geometry2.setLocalTranslation(vector2);
+        rootNode.attachChild(geometry2);
     }
 
 }
